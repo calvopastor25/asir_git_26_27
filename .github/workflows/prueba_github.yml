@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Escribir hola
-      run:
-        echo: "Hola"
+      run: 
+        echo "Hola"

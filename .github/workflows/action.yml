@@ -1,7 +1,8 @@
-name: Ejecución de script
+name: Copia script
 on:
   push:
-    branches: [ main ]
+    #Indicamos la rama en la que hacer el push
+    #branches: [ main ]
 
 jobs:
   ejecutar_script:
@@ -10,16 +11,12 @@ jobs:
     - name: descargar repositorio
       uses: actions/checkout@v5
       
-    - name: muestra usuario
+    - name: crear carpeta backup
       run: 
-        whoami
-        
-    - name: permisos script
-      run: |
-        pwd
-        ls -l
-        chmod +x src/hola.sh
-       
-    - name: ejectuta script
+        mkdir -p backup
+    - name: crear zip comprimido
       run: 
-        ./src/hola.sh
+        zip -r backup/backup_datos.zip datos
+    
+    - name: subir artefacto
+      uses: actions/checkout@v5

@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
     - name: descargar repositorio
-      uses: actions/checkout@v5
+      uses: actions/checkout@v4
       
     - name: crear carpeta backup
       run: 
